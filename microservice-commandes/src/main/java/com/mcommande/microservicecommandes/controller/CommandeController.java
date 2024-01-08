@@ -16,7 +16,6 @@ import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +35,6 @@ public class CommandeController implements HealthIndicator {
     {
         int numberOfDays = propertiesConfigurations.getCommandeslast();
         List<Commande> commandes = dao.findAll();
-        Collections.sort(commandes);
         commandes.removeIf(cmd ->
         cmd.getDate()
         .isBefore(
@@ -66,7 +64,7 @@ public class CommandeController implements HealthIndicator {
 
         if (cmd.isPresent())
                 throw new CommandeAlreadyExist("Commande with ID " + commande.getId() + " already exist");
-        if (product != null)
+        if (product == null)
             throw new ProductNotFoundException("Product with ID "+commande.getIdProduit()+" does not exist");        
 
         return dao.save(commande);

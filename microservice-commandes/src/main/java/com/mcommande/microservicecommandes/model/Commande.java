@@ -9,25 +9,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
-public class Commande implements Comparable<Commande>{
+public class Commande{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private Integer quantité;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private Double montant;
     private Long idProduit;
 
-    @Override
-    public int compareTo(Commande o) {
-        return date.compareTo(o.date);
-    }
 }
