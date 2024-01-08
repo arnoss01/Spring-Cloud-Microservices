@@ -3,14 +3,19 @@ package com.mcommande.microservicecommandes.controller;
 
 import com.mcommande.microservicecommandes.configurations.ApplicationPropertiesConfigurations;
 import com.mcommande.microservicecommandes.dao.CommandeDao;
+import com.mcommande.microservicecommandes.dao.ProduitProxy;
 import com.mcommande.microservicecommandes.exception.CommandeAlreadyExist;
 import com.mcommande.microservicecommandes.exception.CommandeNotFoundException;
+import com.mcommande.microservicecommandes.exception.ProductNotFoundException;
 import com.mcommande.microservicecommandes.model.Commande;
+import com.mcommande.microservicecommandes.model.ProductBean;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -23,16 +28,22 @@ public class CommandeController implements HealthIndicator {
     CommandeDao dao;
     @Autowired
     ApplicationPropertiesConfigurations propertiesConfigurations;   
+    @Autowired
+    ProduitProxy produitProxy;
     
     @GetMapping
     public List<Commande> findAll()
     {
+        int numberOfDays = propertiesConfigurations.getCommandeslast();
         List<Commande> commandes = dao.findAll();
-        if(commandes.isEmpty())
-            return commandes.subList(0,0);
         Collections.sort(commandes);
-        System.out.println(propertiesConfigurations.getCommandeslast());
-        return commandes.subList(0,Math.min(commandes.size() ,propertiesConfigurations.getCommandeslast()));
+        commandes.removeIf(cmd ->
+        cmd.getDate()
+        .isBefore(
+            LocalDate.now()
+            .minusDays(numberOfDays)));
+
+        return commandes;
     }
 
 
@@ -50,12 +61,13 @@ public class CommandeController implements HealthIndicator {
     @PostMapping
     public Commande save( @RequestBody Commande commande)
     {
-        if (commande.getId() != null) {
-            Optional<Commande> cmd = dao.findById(commande.getId());
+        ProductBean product = produitProxy.recupererUnProduit(commande.getIdProduit());
+        Optional<Commande> cmd = dao.findById(commande.getId());
 
-            if (cmd.isPresent())
+        if (cmd.isPresent())
                 throw new CommandeAlreadyExist("Commande with ID " + commande.getId() + " already exist");
-        }
+        if (product != null)
+            throw new ProductNotFoundException("Product with ID "+commande.getIdProduit()+" does not exist");        
 
         return dao.save(commande);
     }
@@ -75,10 +87,13 @@ public class CommandeController implements HealthIndicator {
     @PutMapping("{id}")
     public Commande update(@PathVariable long id , @RequestBody Commande commande)
     {
+        ProductBean product = produitProxy.recupererUnProduit(commande.getId());
         Optional<Commande> updatedCommande = dao.findById(id);
 
         if(updatedCommande.isEmpty())
             throw new CommandeNotFoundException("Commande with ID "+commande.getId()+" already exist");
+        if (product != null)
+            throw new ProductNotFoundException("Product with ID "+commande.getIdProduit()+" does not exist");    
 
         commande.setId(id);
 
