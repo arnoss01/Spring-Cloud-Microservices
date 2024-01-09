@@ -14,25 +14,13 @@ import com.mcommande.microservicecommandes.dao.ProduitProxy;
 @EnableConfigurationProperties
 @EnableDiscoveryClient
 @EnableFeignClients
-public class MicroserviceCommandesApplication implements CommandLineRunner {
+public class MicroserviceCommandesApplication {
 
     @Autowired
     ProduitProxy produitProxy;
 
     public static void main(String[] args) {
         SpringApplication.run(MicroserviceCommandesApplication.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-
-        System.out.println("CHOOOOOOOOOOOOOOF HNNNNNNNNNAAAAAAAAAAAA");
-        System.out.println(produitProxy.recupererUnProduit(3L).getDescription());
-
-        
-
-
-
     }
 
 }
