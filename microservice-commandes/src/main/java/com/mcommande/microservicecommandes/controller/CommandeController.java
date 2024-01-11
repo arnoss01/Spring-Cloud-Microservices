@@ -59,9 +59,9 @@ public class CommandeController implements HealthIndicator {
     @PostMapping
     public Commande save( @RequestBody Commande commande)
     {
-        ProductBean product = produitProxy.recupererUnProduit(commande.getIdProduit());
+        ProductBean product = produitProxy.recupererUnProduit(commande.getIdProduct());
         if (product == null)
-            throw new ProductNotFoundException("Product with ID "+commande.getIdProduit()+" does not exist");        
+            throw new ProductNotFoundException("Product with ID "+commande.getIdProduct()+" does not exist");
 
         return dao.save(commande);
     }
@@ -81,13 +81,13 @@ public class CommandeController implements HealthIndicator {
     @PutMapping("/{id}")
     public Commande update(@PathVariable long id , @RequestBody Commande commande)
     {
-        ProductBean product = produitProxy.recupererUnProduit(commande.getIdProduit());
+        ProductBean product = produitProxy.recupererUnProduit(commande.getIdProduct());
         Optional<Commande> updatedCommande = dao.findById(id);
 
         if(updatedCommande.isEmpty())
             throw new CommandeNotFoundException("Commande with ID "+commande.getId()+" already exist");
         if (product == null)
-            throw new ProductNotFoundException("Product with ID "+commande.getIdProduit()+" does not exist");    
+            throw new ProductNotFoundException("Product with ID "+commande.getIdProduct()+" does not exist");
 
         commande.setId(id);
 

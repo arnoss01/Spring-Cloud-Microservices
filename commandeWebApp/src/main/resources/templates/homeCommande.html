@@ -55,7 +55,7 @@
                 <td><span th:text="${commande.quantité}">Quantité </span></td>
                 <td><span th:text="${commande.date}">Date </span></td>
                 <td><span th:text="${commande.montant}">Montant </span></td>
-                <td><span th:text="${commande.idProduit}">Montant </span></td>
+                <td><span th:text="${commande.idProduct}">Montant </span></td>
                 <td>
                     <a th:href="@{/updateCommande/{id}(id=${commande.id})}"><button class="btn btn-info">Modifier</button></a>
                     <a th:href="@{/deleteCommande/{id}(id=${commande.id})}"><button class="btn btn-danger">Supprimer</button></a>

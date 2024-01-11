@@ -26,16 +26,15 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href=".">Système de gestion des produits</a>
+            <a class="navbar-brand" href="\produits">Système de gestion des produits</a>
         </div>
     </div>
 </nav>
 <div class="container special">
-    <h2 class="h2">Modification des produits </h2>
-    <h2 th:text="'Ajouter une produits'"></h2>
+    <h2 class="h2">Modifier un produit </h2>
     <div>
         <form method="post"
-              th:action="@{/saveProduit}" th:object="${produit}">
+              th:action="@{/updatePrd}" th:object="${produit}">
             <div class="form-group">
                 <input type="hidden" th:field="*{id}" class="form-control">
             </div>
@@ -78,7 +77,7 @@
                 </small>
             </div>
 
-            <button type="submit" class="btn btn-primary" th:text="'Ajouter'"></button>
+            <button type="submit" class="btn btn-primary" th:text="'Modifier'"></button>
         </form>
     </div>
 </div>

@@ -18,39 +18,45 @@ public class CommandeController {
     private CommandeService commandeService;
 
 
-    @GetMapping("/")
-    public String commande(Model model)
-    {   Iterable<Commande> commandes = commandeService.getCommandes();
+    @GetMapping()
+    public String getAllCommandes(Model model) {
+        Iterable<Commande> commandes = commandeService.getAllCommandes();
         model.addAttribute("commandes", commandes);
-        return "home";  }
+        return "homeCommande";
+    }
 
-
-    @RequestMapping(value = "/deleteCommande/{id}",
-            method = {RequestMethod.GET, RequestMethod.PUT, RequestMethod.DELETE})
+    @GetMapping("/deleteCommande/{id}")
     public String deleteCommande(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-        commandeService.daleteCommande(id);
+        commandeService.deleteCommande(id);
         return "redirect:/";
     }
 
     @PostMapping("/saveCommande")
-    public ModelAndView saveCommande(@ModelAttribute Commande commande, Model model) {
-        model.addAttribute("commande", commande);
-        commandeService.saveCommande(commande);
+    public ModelAndView saveCommande(@ModelAttribute Commande commande) {
+        commandeService.createCommande(commande);
         return new ModelAndView("redirect:/");
     }
 
-    @GetMapping(value = "/updateCommande/{id}")
-    public String updateCommande(@PathVariable("id") Long id, Model model) {
-        Commande commande = commandeService.getCommande(id);
-        model.addAttribute("commande", commandeService.updateCommande(commande));
+    @GetMapping("/updateCommande/{id}")
+    public String updateCommandeForm(@PathVariable("id") Long id, Model model) {
+        Commande commande = commandeService.getCommandeById(id);
+        model.addAttribute("commande", commande);
         return "formEditCommande";
     }
 
+    @PostMapping("/updateCommande/{id}")
+    public String updateCommande(@PathVariable("id") Long id, @ModelAttribute Commande commande) {
+        commandeService.updateCommande(id, commande);
+        return "redirect:/";
+    }
+
     @GetMapping("/createCommande")
-    public String createCommande(Commande commande, Model model){
-        model.addAttribute("commande", commande);
+    public String createCommandeForm(Model model) {
+        model.addAttribute("commande", new Commande());
         return "formAddCommande";
     }
+
+
 
 
 

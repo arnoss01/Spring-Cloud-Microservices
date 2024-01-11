@@ -2,11 +2,12 @@ package com.mcommande.commandewebapp.service;
 
 import com.mcommande.commandewebapp.model.Commande;
 import com.mcommande.commandewebapp.repository.CommandeProxy;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Data
+import java.util.List;
+
+
 @Service
 public class CommandeService {
 
@@ -16,28 +17,25 @@ public class CommandeService {
 
 
 
-    public Commande getCommande(final Long id){ return commandeProxy.getCommande(id);}
+    public List<Commande> getAllCommandes() {
+        return commandeProxy.getAllCommandes();
+    }
 
-    public Iterable<Commande> getCommandes(){ return commandeProxy.getCommandes();}
+    public Commande getCommandeById(Long id) {
+        return commandeProxy.getCommandeById(id);
+    }
 
-    public void daleteCommande(final Long id)
-    {
+    public void createCommande(Commande commande) {
+        commandeProxy.createCommande(commande);
+    }
+
+    public void updateCommande(Long id, Commande commande) {
+        commandeProxy.updateCommande(id, commande);
+    }
+
+    public void deleteCommande(Long id) {
         commandeProxy.deleteCommande(id);
     }
-
-
-    public Commande saveCommande(Commande commande)
-    {
-        Commande savedCommande;
-       savedCommande =  (commande.getId() == null)? commandeProxy.createCommande(commande) : commandeProxy.updateCommande(commande);
-
-        return savedCommande;
-
-    }
-
-    public Commande updateCommande(Commande commande) {return commandeProxy.updateCommande(commande);}
-
-
 
 
 

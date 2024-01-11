@@ -26,13 +26,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href=".">Système de gestion des commandes</a>
+            <a class="navbar-brand" href="\">Système de gestion des commandes</a>
         </div>
     </div>
 </nav>
 <div class="container special">
-    <h2 class="h2">Modification des commandes </h2>
-    <h2 th:text="'Ajouter une commande'"></h2>
+    <h2 class="h2">Ajouter une commandes </h2>
     <div>
         <form method="post"
               th:action="@{/saveCommande}" th:object="${commande}">
@@ -43,7 +42,7 @@
                 <label for="description">Description</label>
                 <input type="text" th:field="*{description}" class="form-control"
                        id="description"
-                       placeholder="Saisir la description">
+                       placeholder="Saisir la description" required>
                 <small id="firstNameHelp" class="form-text text-muted">
                     Merci d'écrire la description.
                 </small>
@@ -51,9 +50,9 @@
 
             <div class="form-group">
                 <label for="idProduit">idProduit</label>
-                <input type="number" th:field="*{idProduit}" class="form-control"
+                <input type="number" th:field="*{idProduct}" class="form-control"
                        id="idProduit"
-                       aria-describedby="idProduit" placeholder="Saisir l\'idProduit">
+                       aria-describedby="idProduit" placeholder="Saisir l\'idProduit" required>
                 <small id="Help" class="form-text text-muted">
                     Merci d'écrire l'idProduit.
                 </small>
@@ -62,7 +61,7 @@
             <div class="form-group">
                 <label for="quantité">Quantité</label>
                 <input type="number" th:field="*{quantité}" class="form-control"
-                       id="quantité" aria-describedby="lastNameHelp" placeholder="Saisir la quantité">
+                       id="quantité" aria-describedby="lastNameHelp" placeholder="Saisir la quantité" required>
                 <small
                         id="lastNameHelp" class="form-text text-muted">Merci d'écrire la quantité.</small>
             </div>
@@ -71,7 +70,7 @@
                 <label for="date">Date</label>
                 <input type="date" th:field="*{date}" class="form-control"
                        id="date"
-                       aria-describedby="date" placeholder="Saisir la date">
+                       aria-describedby="date" placeholder="Saisir la date" required>
                 <small id="mailHelp" class="form-text text-muted">
                     Merci d'écrire la date.
                 </small>
@@ -83,7 +82,7 @@
                 <label for="montant">Montant</label>
                 <input type="number" th:field="*{montant}" class="form-control"
                        id="montant"
-                       aria-describedby="Montant" placeholder="Saisir le montant">
+                       aria-describedby="Montant" placeholder="Saisir le montant" required>
                 <small id="mailHelp" class="form-text text-muted">
                     Merci d'écrire le montant.
                 </small>
@@ -91,9 +90,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary">
-                <button type="submit" class="btn btn-primary" th:text="'Ajouter'"></button>
-                </button>
+            <button type="submit" class="btn btn-primary" th:text="'Ajouter'"></button>
         </form>
     </div>
 </div>

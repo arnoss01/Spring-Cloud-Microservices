@@ -4,7 +4,4 @@ public record ProductRequest(
     String titre,
     String description,
     String image,
-    Double prix
-) {
-    
-}
+    Double prix ) { }

@@ -28,6 +28,5 @@ public class Commande{
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private Double montant;
-    private Long idProduit;
-
+    private Long idProduct;
 }

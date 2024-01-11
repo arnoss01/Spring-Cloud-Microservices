@@ -1,4 +1,4 @@
-package com.mproduit.produitwebapp.model;
+package com.mcommande.commandewebapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,3 +16,4 @@ public class Produit {
     private String image;
     private Double prix;
 }
+

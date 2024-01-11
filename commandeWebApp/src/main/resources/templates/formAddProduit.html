@@ -26,13 +26,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href=".">Système de gestion des produits</a>
+            <a class="navbar-brand" href="\">Système de gestion des produits</a>
         </div>
     </div>
 </nav>
 <div class="container special">
-    <h2 class="h2">Modification des produit </h2>
-    <h2 class="h2" th:text="'Modifier une produit'"></h2>
+    <h2 class="h2">Ajouter un produit </h2>
     <div>
         <form method="post"
               th:action="@{/saveProduit}" th:object="${produit}">

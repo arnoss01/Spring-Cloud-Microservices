@@ -14,7 +14,7 @@ import com.mproduits.models.dto.ProductRequest;
 import com.mproduits.models.entities.Product;
 
 @Component
-public class ProductServiceV1 implements IProductService{
+public class ProductService implements IProductService{
 
     @Autowired
     private ProductDao productDAO;
@@ -48,9 +48,7 @@ public class ProductServiceV1 implements IProductService{
 
     @Override
     public Product add(ProductRequest productRequest) {
-        Product product = mapper.dtoToObject(productRequest);
-        Product savedProduct = productDAO.save(product);
-        return savedProduct;
+        return productDAO.save(mapper.dtoToObject(productRequest));
     }
 
     @Override
@@ -61,8 +59,7 @@ public class ProductServiceV1 implements IProductService{
         Product product = mapper.dtoToObject(productRequest);
         product.setId(id);
 
-        Product savedProduct = productDAO.save(product);
-        return savedProduct;
+        return productDAO.save(product);
     }
 
     @Override
