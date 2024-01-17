@@ -40,3 +40,12 @@ Adapt the environment and configurations based on your specific requirements and
 For further information, feel free to contact us.
 
 - [EL HADDAD Anas](mailto:elhaddadanas@gmail.com)
+
+## Projects
+
+1. **config.server:** Spring Cloud Config Server.
+2. **eurekaserver:** Netflix Eureka Server.
+3. **zuul-server:** Netflix Zuul API Gateway.
+4. **mproduits:** The Products Microservice.
+5. **microservice-commandes:** The Orders Microservice.
+6. [**mcommerce-config-repo:**](https://github.com/arnoss01/mcommerce-config-repo) The repository used by the Config Server to fetch configurations for each microservice.
