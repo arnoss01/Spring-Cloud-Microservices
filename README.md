@@ -14,14 +14,14 @@
 
 ### Business Microservices
 
-  1. **Products Microservice**
-  2. **Orders Microservice**
+  - **Products Microservice**
+  - **Orders Microservice**
 
 ### Technical Microservices
 
-  1. **Reverse Proxy**
-  2. **Config Server**
-  3. **Registration Server**
+  - **Reverse Proxy**
+  - **Config Server**
+  - **Registration Server**
 
 ## IDE Agnostic
 
@@ -43,19 +43,19 @@
 
 # Projects
 
-  1. **config.server:** Spring Cloud Config Server.
-  2. **eurekaserver:** Netflix Eureka Server.
-  3. **zuul-server:** Netflix Zuul API Gateway.
-  4. **mproduits:** The Products Microservice.
-  5. **microservice-commandes:** The Orders Microservice.
-  6. [**mcommerce-config-repo:**](https://github.com/arnoss01/mcommerce-config-repo) The repository used by the Config Server to fetch configurations for each microservice.
+  - **config.server:** Spring Cloud Config Server.
+  - **eurekaserver:** Netflix Eureka Server.
+  - **zuul-server:** Netflix Zuul API Gateway.
+  - **mproduits:** The Products Microservice.
+  - **microservice-commandes:** The Orders Microservice.
+  - [**mcommerce-config-repo:**](https://github.com/arnoss01/mcommerce-config-repo) The repository used by the Config Server to fetch configurations for each microservice.
 
 # Dependencies
 
   This project relies on the following dependencies:
   
-  1. [Maven CLI](https://maven.apache.org/)
-  2. [JDK 17](https://openjdk.java.net/projects/jdk/17/)
-  3. [JDK 8 / 1.8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+  - [Maven CLI](https://maven.apache.org/)
+  - [JDK 17](https://openjdk.java.net/projects/jdk/17/)
+  - [JDK 8 / 1.8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
   
   Make sure to have these dependencies installed on your system before running the project.
