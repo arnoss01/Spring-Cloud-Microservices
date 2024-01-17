@@ -49,3 +49,13 @@ For further information, feel free to contact us.
 4. **mproduits:** The Products Microservice.
 5. **microservice-commandes:** The Orders Microservice.
 6. [**mcommerce-config-repo:**](https://github.com/arnoss01/mcommerce-config-repo) The repository used by the Config Server to fetch configurations for each microservice.
+
+# Dependencies
+
+This project relies on the following dependencies:
+
+1. [Maven CLI](https://maven.apache.org/)
+2. [JDK 17](https://openjdk.java.net/projects/jdk/17/)
+3. [JDK 8 / 1.8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+
+Make sure to have these dependencies installed on your system before running the project.
