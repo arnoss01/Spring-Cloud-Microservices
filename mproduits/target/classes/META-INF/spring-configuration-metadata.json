@@ -10,7 +10,8 @@
     {
       "name": "mes-configs.limit-de-produits",
       "type": "java.lang.Integer",
-      "sourceType": "com.mproduits.configurations.ApplicationPropertiesConfiguration"
+      "sourceType": "com.mproduits.configurations.ApplicationPropertiesConfiguration",
+      "defaultValue": 0
     }
   ],
   "hints": []
