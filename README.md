@@ -72,6 +72,7 @@
     ```
   
   - **Config Server:**
+
     - Navigate to the config server project.
     - Run the project:
   
@@ -81,6 +82,7 @@
     ```
   
   - **Eureka Server:**
+
     - Navigate to the Eureka server project.
     - Run the project:
   
@@ -90,8 +92,8 @@
     ```
   
   - **Zuul API Gateway:**
+
     - Navigate to the Zuul API Gateway project.
-    - Set the JAVA_HOME to JDK 8.
     - Run the project:
   
     ```bash
@@ -100,6 +102,7 @@
     ```
   
   - **Products Microservice:**
+
     - Navigate to the products microservice project.
   
     ```bash
@@ -108,6 +111,7 @@
     ```
   
   - **Orders Microservice:**
+  
     - Navigate to the orders microservice project.
 
     ```bash
