@@ -73,7 +73,6 @@
   
   - **Config Server:**
     - Navigate to the config server project.
-    - Set the JAVA_HOME to JDK 17.
     - Run the project:
   
     ```bash
@@ -83,7 +82,6 @@
   
   - **Eureka Server:**
     - Navigate to the Eureka server project.
-    - Set the JAVA_HOME to JDK 8.
     - Run the project:
   
     ```bash
@@ -103,22 +101,18 @@
   
   - **Products Microservice:**
     - Navigate to the products microservice project.
-    - Set the JAVA_HOME to JDK 17.
-    - Run the project on port 9001:
   
     ```bash
     export JAVA_HOME=/your/java/17/home/path
-    mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9001'
+    mvn spring-boot:run 
     ```
   
   - **Orders Microservice:**
     - Navigate to the orders microservice project.
-    - Set the JAVA_HOME to JDK 17.
-    - Run the project on port 9002:
-  
+
     ```bash
     export JAVA_HOME=/your/java/17/home/path
-    mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9002'
+    mvn spring-boot:run 
     ```
   
   Now, you're ready to test and interact with the launched microservices.
